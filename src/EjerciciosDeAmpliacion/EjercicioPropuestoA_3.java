@@ -6,8 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class EjercicioPropuestoA_2 {
-
+public class EjercicioPropuestoA_3 {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         //Pedir un nombre de archivo al usuario.
@@ -21,25 +20,17 @@ public class EjercicioPropuestoA_2 {
             System.out.println("No se ha encontrado el archivo");
         }
 
-        //Leer el archivo que el usuario desee
         try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {
-            String linea;
-            int contador = 0;
+            int contadorLineas = 0;
 
-            //Mostrar archivo y contar líneas
-            while ((linea = br.readLine()) != null) {
-                System.out.println(linea);
-                contador++;
-
-                if (contador % 24 == 0){
-                    System.out.println("Pulse Intro para seguir viendo el archivo");
-                    sc.nextLine();
-                }
+            while ((br.readLine()) != null) {
+                contadorLineas++;
             }
 
-        }catch (IOException e) {
+            System.out.println("El archivo que ha leído contiene: " + contadorLineas + " líneas.");
+
+        }catch (IOException e){
             System.out.println("Error");
         }
-
     }
 }
